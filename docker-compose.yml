@@ -6,6 +6,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     restart: always
+    tty: true
     command: ["/bin/bash"]
     volumes:
       - ./:/app

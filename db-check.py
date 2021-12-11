@@ -45,6 +45,9 @@ def checkdata():
         WARNING = '\033[93m'
         ENDC = '\033[0m'
 
+        match = 0
+        notmatch = 0
+
         # read connection parameters
         params = config()
 
@@ -80,11 +83,17 @@ def checkdata():
            print("Backup Count : "+str(res[0]))
            print("Production Count : "+str(res2[0]))
            if res[0] == res2[0]:
+              match = match + 1
               print(OKGREEN + "Status : Match"+ENDC)
            else:
+              notmatch = notmatch + 1
               print(WARNING + "Status : Not Match"+ENDC)
            print("===========================================")
 
+        print("================Summary====================")
+        print("Match : "+str(match))
+        print("Not Match : "+str(notmatch))
+        print("===========================================")
         # close the communication with the PostgreSQL
         cur.close()
         cur2.close()
