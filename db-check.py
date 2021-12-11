@@ -36,7 +36,7 @@ def connect():
     finally:
         if conn is not None:
             conn.close()
-            print('Database connection closed.')
+            # print('Database connection closed.')
 
 def checkdata():
     conn = None
@@ -107,5 +107,8 @@ def checkdata():
 
 
 if __name__ == '__main__':
+    print("===========================================")
+    print("Checking Database")
+    print("===========================================")
     connect()
     checkdata()
